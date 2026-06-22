@@ -5,7 +5,7 @@ Compare your current VDP's command engine performance with real life / target nu
 ## What it does
 It measures the amount of pixels which the command engine is able to "produce" in one full frame, in the current set screen frequency.
 
-The current test runs a certain operation on a rectangle of size 256x40 = 10240 pixels in screen 8. This is too much for the command engine in one frame.
+The current test runs a certain operation on a rectangle of size 256x40 = 10240 pixels in screen 8. This is too much for the command engine in one frame. But we abort the command at this point, and count the amount of pixels it managed to "produce".
 
 We run 5 tests in both landscape and in portrait (10 in total); COPY `HMMM, LMMM, YMMM` and FILLRECT `HMMV, LMMV`.
 
@@ -18,8 +18,6 @@ The above are run under these conditions:
 
 \*(sprites and screen on, the CPU is leaving the VDP alone)  
 \*\*(hammered means the CPU executes continuous unrolled `OUT(98),A`)
-
-After each test, we count the pixels in the specified VRAM area.
 
 ![screenshot](img/philips_nms_8245.jpg)
 Both 50Hz and 60Hz are supported.
@@ -43,7 +41,7 @@ Regardless of the actuall diffs in condition 4 and 5, the value in 4 should be q
 * From the `PANASONIC FS-A1` (V9938) and the `PHILIPS NMS 8245` (V9938) which has 0 extra wait states, the "hammered" command costs 18 cycles, while on the others it costs 19 cycles. I can see from my numbers that this affects the amount of pixels in condition 4. The more CPU commands, the less pixels produced by command engine on COPY commands.
 
 ## Background
-This tool came about in the wake of releasing [Go Figure](https://www.fabulous8bit.com/p/go-figure.html), an MSX2 game which is pushing the limits of the MSX2. The game is dependent on the VDP behaving like the real chip. We quickly found that the game's scroll did not run on emulators like WebMSX (it looks like [this](img/webmsx_bug.png)). timings are [here](img/webmsx.png) and Emulicious. And even the OCM.
+This tool came about in the wake of releasing [Go Figure](https://www.fabulous8bit.com/p/go-figure.html), an MSX2 game which is pushing the limits of the MSX2. The game is dependent on the VDP behaving like the real chip. We quickly found that the game's scroll did not run on emulators like WebMSX (it looks like [this](img/webmsx_bug.png). timings are [here](img/webmsx.png)) and Emulicious. And even the OCM.
 
 ## Requirements
 * **Run:** MSX2 or higher, MSX-DOS

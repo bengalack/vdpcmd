@@ -25,7 +25,7 @@ Both 50Hz and 60Hz are supported.
 ### Understanding the results
 Results are in columns marked `THIS` and are to be compared to `REAL` which is a target value which I have measured on real machines.
 
-Fore real MSX results in conditions 1-3 will likely not diverge much (normal diff is 0-1, maybe a fluke up to 6). Conditions 4 and 5 are harder to get perfect timings on, and we can allow a diff up to 150 without anything being wrong.
+For real MSX results in conditions 1-3 will likely not diverge much (normal diff is 0-1, maybe a fluke up to 6). Conditions 4 and 5 are harder to get perfect timings on, and we can allow a diff up to 150 without anything being wrong.
 
 Regardless of the actuall diffs in condition 4 and 5, the value in 4 should be quite lower than in 1, and value in 5 is assumed to be somewhat lower than in 3.
 
